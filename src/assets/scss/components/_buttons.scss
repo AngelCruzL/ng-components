@@ -34,4 +34,22 @@
       color: $button-primary-color-hover;
     }
   }
+
+  &[data-size="small"] {
+    justify-content: center;
+    padding-inline: 0;
+    inline-size: 8rem;
+  }
+
+  &[data-size="medium"] {
+    justify-content: center;
+    padding-inline: 0;
+    inline-size: 12rem;
+  }
+
+  &[data-size="large"] {
+    justify-content: center;
+    padding-inline: 0;
+    inline-size: 20rem;
+  }
 }

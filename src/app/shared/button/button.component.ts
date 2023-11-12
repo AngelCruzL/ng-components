@@ -11,7 +11,7 @@ export class ButtonComponent {
   /**
    * Defines the label of the button
    */
-  @Input({ required: true }) label = 'Button';
+  @Input({ required: true }) label!: string;
 
   /**
    * Defines the size of the button
@@ -33,6 +33,10 @@ export class ButtonComponent {
    */
   @Output() onClick = new EventEmitter<any>();
 
+  /**
+   * Handles the click event of the button
+   * @param event
+   */
   onClickButton(event: any) {
     this.onClick.emit(event);
   }

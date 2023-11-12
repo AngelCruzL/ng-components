@@ -16,6 +16,9 @@ const meta: Meta<ButtonComponent> = {
     type: {
       control: 'select',
     },
+    size: {
+      control: 'select',
+    },
   },
 };
 
@@ -24,21 +27,34 @@ type Story = StoryObj<ButtonComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/angular/writing-stories/args
 export const Primary: Story = {
-  args: {},
-};
-
-export const Secondary: Story = {
-  args: {},
-};
-
-export const Large: Story = {
   args: {
-    size: 'large',
+    label: 'Primary',
+  },
+};
+
+export const Accent: Story = {
+  args: {
+    variant: 'accent',
+    label: 'Accent',
   },
 };
 
 export const Small: Story = {
   args: {
     size: 'small',
+    label: 'Small Button',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    label: 'Medium Button',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
+    label: 'Large Button',
   },
 };
