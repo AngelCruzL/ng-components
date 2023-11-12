@@ -1,0 +1,55 @@
+@use "../abstracts" as *;
+
+.label {
+  display: flex;
+
+  &.required {
+    &::after {
+      content: "*";
+      color: $color-text-interactive-default;
+      margin-left: $size-1;
+    }
+  }
+
+  &.readonly {
+    &::after {
+      content: "🔒";
+      display: block;
+      font-size: $font-size-200;
+      font-weight: $font-weight-bold;
+      margin-block-start: $size-1;
+      margin-inline-start: $size-1;
+    }
+  }
+}
+
+.input {
+  display: block;
+  border-radius: $input-border-radius;
+  border-color: $input-border-color;
+  padding: $input-padding;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
+  font-weight: $input-font-weight;
+
+  &::placeholder {
+    color: $input-placeholder-color;
+  }
+
+  &[readonly] {
+    background-color: $color-primary-200;
+    color: $color-primary-400;
+  }
+
+  &[type="text"],
+  &[type="email"],
+  &[type="password"],
+  &[type="search"],
+  &[type="tel"],
+  &[type="number"],
+  {
+    &:focus {
+      outline: 2px solid $input-border-color-active;
+    }
+  }
+}

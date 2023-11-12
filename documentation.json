@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-2d88b9d7fbc550cac4c1643271cb3dde5d70aab9db9aa883640cd07a09171bdf23617c6d37cc1011845de925ed0b6795467f5090124e58e8b0eff8483782482d",
+            "id": "component-AppComponent-7c5a26af3f297596099d00bc2ebd9866a3a3ea08ca031e012c1369abdc7e0d4997ac65efc693f6a08d4ad50ca63f63a5f52aa2ae8dae008043ca54a58d3363e7",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -37,7 +37,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 16
                 }
             ],
             "methodsClass": [],
@@ -57,12 +57,16 @@
                 {
                     "name": "ButtonComponent",
                     "type": "component"
+                },
+                {
+                    "name": "InputComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterOutlet } from '@angular/router';\nimport { ButtonComponent } from './shared/button/button.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet, ButtonComponent],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-17';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterOutlet } from '@angular/router';\n\nimport { ButtonComponent } from './shared/button/button.component';\nimport { InputComponent } from './shared/input/input.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet, ButtonComponent, InputComponent],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-17';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -72,7 +76,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    label=\"Este es el contenido del botón\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    label=\"Este es un botón primario\"\n    size=\"large\"\n  />\n</div>\n"
+            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    label=\"Este es el contenido del botón\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    label=\"Este es un botón primario\"\n    size=\"large\"\n  />\n</div>\n\n<div class=\"container margin-block-start-10\">\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    [required]=\"true\"\n    label=\"Required input\"\n    name=\"required-input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    [hasLabel]=\"false\"\n    label=\"Input sin label\"\n    name=\"input-without-label\"\n  />\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -218,6 +222,139 @@
             "stylesData": "",
             "extends": [],
             "templateData": "<button\n  (click)=\"onClickButton($event)\"\n  [attr.data-size]=\"size\"\n  [attr.data-variant]=\"variant\"\n  [type]=\"type\"\n  class=\"button\"\n>\n  {{ label }}\n</button>\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-927ea3a57685c454d30eba35b1ad911737116885b24277e2f4bf5f53a394a0e04786ba7f6f579787b20d2375d12e0d07f983798271848860c60508c9c74826ae",
+            "file": "src/app/shared/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-input",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "hasLabel",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhether to show the label or not\n",
+                    "description": "<p>Whether to show the label or not</p>\n",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "rawdescription": "\n\nThe label to show if hasLabel is true, if not, this is used as aria-label\n",
+                    "description": "<p>The label to show if hasLabel is true, if not, this is used as aria-label</p>\n",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "rawdescription": "\n\nThe name of the input\n",
+                    "description": "<p>The name of the input</p>\n",
+                    "line": 38,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nThe placeholder to show in the input\n",
+                    "description": "<p>The placeholder to show in the input</p>\n",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "readonly",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhether the input is readonly or not\n",
+                    "description": "<p>Whether the input is readonly or not</p>\n",
+                    "line": 34,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "required",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nWhether the input is required or not\n",
+                    "description": "<p>Whether the input is required or not</p>\n",
+                    "line": 42,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nThe HTML type of the input\n",
+                    "description": "<p>The HTML type of the input</p>\n",
+                    "line": 30,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nThe value of the input\n",
+                    "description": "<p>The value of the input</p>\n",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './input.component.html',\n})\nexport class InputComponent {\n  /**\n   * Whether to show the label or not\n   */\n  @Input() hasLabel = true;\n  /**\n   * The label to show if hasLabel is true, if not, this is used as aria-label\n   */\n  @Input({ required: true }) label!: string;\n  /**\n   * The placeholder to show in the input\n   */\n  @Input() placeholder = '';\n  /**\n   * The value of the input\n   */\n  @Input() value = '';\n  /**\n   * The HTML type of the input\n   */\n  @Input() type = 'text';\n  /**\n   * Whether the input is readonly or not\n   */\n  @Input() readonly = false;\n  /**\n   * The name of the input\n   */\n  @Input({ required: true }) name!: string;\n  /**\n   * Whether the input is required or not\n   */\n  @Input() required = false;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "@if (hasLabel) {\n  <label\n    class=\"label\"\n    [for]=\"name\"\n    [ngClass]=\"required ? 'required':''\"\n  >\n    {{ label }}\n  </label>\n\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [name]=\"name\"\n    [id]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n  />\n} @else {\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [attr.aria-label]=\"label\"\n  />\n}\n"
         }
     ],
     "modules": [],
@@ -242,6 +379,26 @@
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
                 "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
+            },
+            {
+                "name": "InputWithLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n  },\n}"
+            },
+            {
+                "name": "InputWithLabelRequired",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n    required: true,\n  },\n}"
             },
             {
                 "name": "Large",
@@ -272,6 +429,16 @@
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
                 "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n  render: (args: InputComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    readonly: {\n      control: 'boolean',\n    },\n  },\n}"
             },
             {
                 "name": "preview",
@@ -312,6 +479,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "src/app/shared/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "src/app/shared/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -394,6 +572,38 @@
                     "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
                 }
             ],
+            "src/app/shared/input/input.stories.ts": [
+                {
+                    "name": "InputWithLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n  },\n}"
+                },
+                {
+                    "name": "InputWithLabelRequired",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n    required: true,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n  render: (args: InputComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    readonly: {\n      control: 'boolean',\n    },\n  },\n}"
+                }
+            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -422,12 +632,25 @@
                     "description": "",
                     "kind": 183
                 }
+            ],
+            "src/app/shared/input/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
             ]
         }
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 12,
         "status": "low",
         "files": [
             {
@@ -524,6 +747,45 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 88,
+                "coverageCount": "8/9",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputWithLabel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputWithLabelRequired",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

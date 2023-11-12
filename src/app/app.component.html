@@ -11,3 +11,31 @@
     size="large"
   />
 </div>
+
+<div class="container margin-block-start-10">
+  <app-input
+    label="Este es un input"
+    name="input"
+    placeholder="Placeholder"
+  />
+
+  <app-input
+    label="Required input"
+    name="required-input"
+    placeholder="Placeholder"
+    required
+  />
+
+  <app-input
+    [hasLabel]="false"
+    label="Input sin label"
+    name="input-without-label"
+  />
+
+  <app-input
+    label="Este es un input"
+    name="input"
+    placeholder="Placeholder"
+    readonly
+  />
+</div>

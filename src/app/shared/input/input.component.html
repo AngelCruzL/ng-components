@@ -1,0 +1,32 @@
+@if (hasLabel) {
+  <label
+    class="label"
+    [for]="name"
+    [ngClass]="[
+      required ? 'required' : '',
+      readonly ? 'readonly' : ''
+    ]"
+  >
+    {{ label }}
+  </label>
+
+  <input
+    class="input"
+    [type]="type"
+    [name]="name"
+    [id]="name"
+    [placeholder]="placeholder"
+    [required]="required"
+    [readonly]="readonly"
+  />
+} @else {
+  <input
+    class="input"
+    [type]="type"
+    [attr.aria-label]="label"
+    [name]="name"
+    [placeholder]="placeholder"
+    [required]="required"
+    [readonly]="readonly"
+  />
+}

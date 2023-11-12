@@ -29,6 +29,10 @@
     background-color: $button-primary-background;
     color: $button-primary-color;
 
+    &:focus {
+      outline: 2px solid $input-border-color-active;
+    }
+
     &:is(:hover, :focus) {
       background-color: $button-primary-background-hover;
       color: $button-primary-color-hover;

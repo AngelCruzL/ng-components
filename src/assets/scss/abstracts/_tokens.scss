@@ -85,3 +85,15 @@ $card-line-height: 1.25;
 
 $card-heading-color-default: $card-color-default;
 $card-heading-font-size: $font-size-600;
+
+// Inputs
+$input-border-radius: $border-radius-1;
+$input-padding: 0.25em 0.5em;
+$input-border-color: transparent;
+$input-border-color-active: $color-text-interactive-default;
+$input-border-color-readonly: $color-primary-200;
+$input-font-family: $body-font-family;
+$input-font-size: $font-size-600;
+$input-font-weight: $font-weight-default;
+$input-color: $body-text-color;
+$input-placeholder-color: $color-primary-300;
