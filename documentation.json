@@ -72,11 +72,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button class=\"margin-inline-end-6\" size=\"large\" variant=\"accent\">Botón accent</app-button>\n  <app-button size=\"large\" variant=\"primary\">Botón primary</app-button>\n</div>\n"
+            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    label=\"Este es el contenido del botón\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    label=\"Este es un botón primario\"\n    size=\"large\"\n  />\n</div>\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-f2488f0dcf3089c678e0b77ac043862c6235bbd2294abdbf48fb495ba02a1afe7b4a38afea0e2603a3511fd9d2b2f1197cf13f1b204ac3016d5a4e477bd5b21e",
+            "id": "component-ButtonComponent-594b527bddc4ecf6b65add53458046d8aae0ea3194284c3661c806d8e82611a1bac1cf54472ac80dc0d0e5d63e73594ae3a53730782fe3021d0e592bf63b1706",
             "file": "src/app/shared/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -95,7 +95,6 @@
                 {
                     "required": true,
                     "name": "label",
-                    "defaultValue": "'Button'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
@@ -166,18 +165,35 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 40,
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "rawdescription": "\n\nHandles the click event of the button\n",
+                    "description": "<p>Handles the click event of the button</p>\n",
                     "jsdoctags": [
                         {
-                            "name": "event",
+                            "name": {
+                                "pos": 853,
+                                "end": 858,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "event"
+                            },
                             "type": "any",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
-                                "text": "param"
-                            }
+                                "pos": 847,
+                                "end": 852,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
                         }
                     ]
                 }
@@ -196,7 +212,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n})\nexport class ButtonComponent {\n  /**\n   * Defines the label of the button\n   */\n  @Input({ required: true }) label = 'Button';\n\n  /**\n   * Defines the size of the button\n   */\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Defines the html type of the button\n   */\n  @Input() type: 'button' | 'submit' | 'reset' = 'button';\n\n  /**\n   * Defines the variant of the button\n   */\n  @Input() variant: 'accent' | 'primary' = 'primary';\n\n  /**\n   * Optional click handler\n   */\n  @Output() onClick = new EventEmitter<any>();\n\n  onClickButton(event: any) {\n    this.onClick.emit(event);\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n})\nexport class ButtonComponent {\n  /**\n   * Defines the label of the button\n   */\n  @Input({ required: true }) label!: string;\n\n  /**\n   * Defines the size of the button\n   */\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Defines the html type of the button\n   */\n  @Input() type: 'button' | 'submit' | 'reset' = 'button';\n\n  /**\n   * Defines the variant of the button\n   */\n  @Input() variant: 'accent' | 'primary' = 'primary';\n\n  /**\n   * Optional click handler\n   */\n  @Output() onClick = new EventEmitter<any>();\n\n  /**\n   * Handles the click event of the button\n   * @param event\n   */\n  onClickButton(event: any) {\n    this.onClick.emit(event);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -207,6 +223,16 @@
     "modules": [],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "Accent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'accent',\n    label: 'Accent',\n  },\n}"
+            },
             {
                 "name": "appConfig",
                 "ctype": "miscellaneous",
@@ -225,7 +251,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+            },
+            {
+                "name": "Medium",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/button/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Medium Button',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -235,7 +271,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n  },\n}"
+                "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
             },
             {
                 "name": "preview",
@@ -255,17 +291,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
-            },
-            {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {},\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Primary',\n  },\n}"
             },
             {
                 "name": "Small",
@@ -275,7 +301,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
             }
         ],
         "functions": [],
@@ -294,6 +320,68 @@
         ],
         "enumerations": [],
         "groupedVariables": {
+            "src/app/shared/button/button.stories.ts": [
+                {
+                    "name": "Accent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'accent',\n    label: 'Accent',\n  },\n}"
+                },
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+                },
+                {
+                    "name": "Medium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Medium Button',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ButtonComponent>",
+                    "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Primary',\n  },\n}"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/button/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+                }
+            ],
             "src/app/app.config.ts": [
                 {
                     "name": "appConfig",
@@ -304,58 +392,6 @@
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
                     "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
-                }
-            ],
-            "src/app/shared/button/button.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n  },\n}"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n}"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {},\n}"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n  },\n}"
                 }
             ],
             ".storybook/preview.ts": [
@@ -391,7 +427,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 7,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -428,9 +464,19 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 71,
-                "coverageCount": "5/7",
-                "status": "good"
+                "coveragePercent": 85,
+                "coverageCount": "6/7",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/app/shared/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Accent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
             },
             {
                 "filePath": "src/app/shared/button/button.stories.ts",
@@ -438,6 +484,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/button/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Medium",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -458,16 +514,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/shared/button/button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
