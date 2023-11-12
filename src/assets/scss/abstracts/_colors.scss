@@ -1,0 +1,42 @@
+// global color tokens
+$_clr-white: hsl(0 0% 100%);
+$_clr-orange-300: hsl(8 62% 75%);
+$_clr-orange-400: hsl(8 62% 55%);
+$_clr-orange-500: hsl(8 62% 35%);
+$_clr-brown-100: hsl(33 24% 92%);
+$_clr-brown-200: hsl(33 25% 88%);
+$_clr-brown-300: hsl(33 23% 69%);
+$_clr-brown-400: hsl(22 31% 44%);
+$_clr-brown-700: hsl(20 23% 23%);
+$_clr-brown-800: hsl(18 23% 10%);
+
+$colors: (
+  "neutral": (
+    "100": $_clr-white,
+  ),
+  "accent": (
+    "300": $_clr-orange-300,
+    "400": $_clr-orange-400,
+    "500": $_clr-orange-500,
+  ),
+  "primary": (
+    "100": $_clr-brown-100,
+    "200": $_clr-brown-200,
+    "300": $_clr-brown-300,
+    "400": $_clr-brown-400,
+    "700": $_clr-brown-700,
+    "800": $_clr-brown-800,
+  ),
+);
+
+// contextual color tokens
+$color-neutral-100: var(--neutral-100);
+$color-accent-300: var(--accent-300);
+$color-accent-400: var(--accent-400);
+$color-accent-500: var(--accent-500);
+$color-primary-100: var(--primary-100);
+$color-primary-200: var(--primary-200);
+$color-primary-300: var(--primary-300);
+$color-primary-400: var(--primary-400);
+$color-primary-700: var(--primary-700);
+$color-primary-800: var(--primary-800);
