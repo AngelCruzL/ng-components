@@ -76,7 +76,7 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    label=\"Este es el contenido del botón\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    label=\"Este es un botón primario\"\n    size=\"large\"\n  />\n</div>\n\n<div class=\"container margin-block-start-10\">\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    [required]=\"true\"\n    label=\"Required input\"\n    name=\"required-input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    [hasLabel]=\"false\"\n    label=\"Input sin label\"\n    name=\"input-without-label\"\n  />\n</div>\n"
+            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    label=\"Este es el contenido del botón\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    label=\"Este es un botón primario\"\n    size=\"large\"\n  />\n</div>\n\n<div class=\"container margin-block-start-10\">\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    label=\"Required input\"\n    name=\"required-input\"\n    placeholder=\"Placeholder\"\n    required\n  />\n\n  <app-input\n    [hasLabel]=\"false\"\n    label=\"Input sin label\"\n    name=\"input-without-label\"\n  />\n\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n    readonly\n  />\n</div>\n"
         },
         {
             "name": "ButtonComponent",
@@ -225,7 +225,7 @@
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-927ea3a57685c454d30eba35b1ad911737116885b24277e2f4bf5f53a394a0e04786ba7f6f579787b20d2375d12e0d07f983798271848860c60508c9c74826ae",
+            "id": "component-InputComponent-c00fb131e33327299eadd19c06ed37236fd715f5e9e419b6a3244f3a35bf37312fde98d646cc39b96ad146c58a0b28061666a517d134f9029082fa27790f44b3",
             "file": "src/app/shared/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -242,6 +242,7 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "required": false,
                     "name": "hasLabel",
                     "defaultValue": "true",
                     "deprecated": false,
@@ -288,6 +289,7 @@
                     "decorators": []
                 },
                 {
+                    "required": false,
                     "name": "readonly",
                     "defaultValue": "false",
                     "deprecated": false,
@@ -299,6 +301,7 @@
                     "decorators": []
                 },
                 {
+                    "required": false,
                     "name": "required",
                     "defaultValue": "false",
                     "deprecated": false,
@@ -317,7 +320,7 @@
                     "rawdescription": "\n\nThe HTML type of the input\n",
                     "description": "<p>The HTML type of the input</p>\n",
                     "line": 30,
-                    "type": "string",
+                    "type": "\"text\" | \"email\" | \"password\" | \"number\"",
                     "decorators": []
                 },
                 {
@@ -349,12 +352,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './input.component.html',\n})\nexport class InputComponent {\n  /**\n   * Whether to show the label or not\n   */\n  @Input() hasLabel = true;\n  /**\n   * The label to show if hasLabel is true, if not, this is used as aria-label\n   */\n  @Input({ required: true }) label!: string;\n  /**\n   * The placeholder to show in the input\n   */\n  @Input() placeholder = '';\n  /**\n   * The value of the input\n   */\n  @Input() value = '';\n  /**\n   * The HTML type of the input\n   */\n  @Input() type = 'text';\n  /**\n   * Whether the input is readonly or not\n   */\n  @Input() readonly = false;\n  /**\n   * The name of the input\n   */\n  @Input({ required: true }) name!: string;\n  /**\n   * Whether the input is required or not\n   */\n  @Input() required = false;\n}\n",
+            "sourceCode": "import { booleanAttribute, Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './input.component.html',\n})\nexport class InputComponent {\n  /**\n   * Whether to show the label or not\n   */\n  @Input({ transform: booleanAttribute }) hasLabel = true;\n  /**\n   * The label to show if hasLabel is true, if not, this is used as aria-label\n   */\n  @Input({ required: true }) label!: string;\n  /**\n   * The placeholder to show in the input\n   */\n  @Input() placeholder = '';\n  /**\n   * The value of the input\n   */\n  @Input() value = '';\n  /**\n   * The HTML type of the input\n   */\n  @Input() type: 'text' | 'email' | 'password' | 'number' = 'text';\n  /**\n   * Whether the input is readonly or not\n   */\n  @Input({ transform: booleanAttribute }) readonly = false;\n  /**\n   * The name of the input\n   */\n  @Input({ required: true }) name!: string;\n  /**\n   * Whether the input is required or not\n   */\n  @Input({ transform: booleanAttribute }) required = false;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "@if (hasLabel) {\n  <label\n    class=\"label\"\n    [for]=\"name\"\n    [ngClass]=\"required ? 'required':''\"\n  >\n    {{ label }}\n  </label>\n\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [name]=\"name\"\n    [id]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n  />\n} @else {\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [attr.aria-label]=\"label\"\n  />\n}\n"
+            "templateData": "@if (hasLabel) {\n  <label\n    class=\"label\"\n    [for]=\"name\"\n    [ngClass]=\"[\n      required ? 'required' : '',\n      readonly ? 'readonly' : ''\n    ]\"\n  >\n    {{ label }}\n  </label>\n\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [name]=\"name\"\n    [id]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n    [readonly]=\"readonly\"\n  />\n} @else {\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [attr.aria-label]=\"label\"\n    [name]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n    [readonly]=\"readonly\"\n  />\n}\n"
         }
     ],
     "modules": [],
@@ -378,7 +381,57 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
+                "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
+            },
+            {
+                "name": "InputEmail",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-email',\n    placeholder: 'Input email',\n    type: 'email',\n  },\n}"
+            },
+            {
+                "name": "InputNumber",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-number',\n    placeholder: 'Input number',\n    type: 'number',\n  },\n}"
+            },
+            {
+                "name": "InputPassword",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-password',\n    placeholder: 'Input password',\n    type: 'password',\n  },\n}"
+            },
+            {
+                "name": "InputReadonly",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-readonly',\n    placeholder: 'Input readonly',\n    readonly: true,\n  },\n}"
+            },
+            {
+                "name": "InputRequiredWithLabel",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Input Required',\n    name: 'input-with-label',\n    required: true,\n    placeholder: 'Input with label',\n  },\n}"
             },
             {
                 "name": "InputWithLabel",
@@ -388,17 +441,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n    placeholder: 'Input with label',\n  },\n}"
             },
             {
-                "name": "InputWithLabelRequired",
+                "name": "InputWithoutLabel",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/shared/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n    required: true,\n  },\n}"
+                "defaultValue": "{\n  args: {\n    hasLabel: false,\n    label: 'Input without label',\n    placeholder: 'Input without label',\n    name: 'input-without-label',\n  },\n}"
             },
             {
                 "name": "Large",
@@ -471,7 +524,36 @@
                 "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "HttpLoaderFactory",
+                "file": "src/app/app.config.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
             {
                 "name": "Story",
@@ -569,10 +651,60 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [provideRouter(routes)]\n}"
+                    "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
                 }
             ],
             "src/app/shared/input/input.stories.ts": [
+                {
+                    "name": "InputEmail",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-email',\n    placeholder: 'Input email',\n    type: 'email',\n  },\n}"
+                },
+                {
+                    "name": "InputNumber",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-number',\n    placeholder: 'Input number',\n    type: 'number',\n  },\n}"
+                },
+                {
+                    "name": "InputPassword",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-password',\n    placeholder: 'Input password',\n    type: 'password',\n  },\n}"
+                },
+                {
+                    "name": "InputReadonly",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-readonly',\n    placeholder: 'Input readonly',\n    readonly: true,\n  },\n}"
+                },
+                {
+                    "name": "InputRequiredWithLabel",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Input Required',\n    name: 'input-with-label',\n    required: true,\n    placeholder: 'Input with label',\n  },\n}"
+                },
                 {
                     "name": "InputWithLabel",
                     "ctype": "miscellaneous",
@@ -581,17 +713,17 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n    placeholder: 'Input with label',\n  },\n}"
                 },
                 {
-                    "name": "InputWithLabelRequired",
+                    "name": "InputWithoutLabel",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/shared/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Input',\n    name: 'input-with-label',\n    required: true,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    hasLabel: false,\n    label: 'Input without label',\n    placeholder: 'Input without label',\n    name: 'input-without-label',\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -617,7 +749,38 @@
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "src/app/app.config.ts": [
+                {
+                    "name": "HttpLoaderFactory",
+                    "file": "src/app/app.config.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "http",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "http",
+                            "type": "HttpClient",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "src/app/shared/button/button.stories.ts": [
@@ -650,7 +813,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 12,
+        "count": 8,
         "status": "low",
         "files": [
             {
@@ -670,6 +833,16 @@
                 "name": "AppComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "HttpLoaderFactory",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -765,6 +938,56 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "InputEmail",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputNumber",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputPassword",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputReadonly",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InputRequiredWithLabel",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/input/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "InputWithLabel",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -775,7 +998,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "InputWithLabelRequired",
+                "name": "InputWithoutLabel",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
