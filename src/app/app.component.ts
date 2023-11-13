@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { ButtonComponent } from './shared/button/button.component';
 import { InputComponent } from './shared/input/input.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { InputComponent } from './shared/input/input.component';
     ButtonComponent,
     InputComponent,
     TranslateModule,
+    ProfileEditorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
