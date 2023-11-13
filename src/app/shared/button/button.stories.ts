@@ -1,12 +1,22 @@
-import type { Meta } from '@storybook/angular';
-import { StoryObj } from '@storybook/angular';
+import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
 
 import { ButtonComponent } from './button.component';
+import { StorybookModule } from '../../config/storybook/storybook.module';
+import { importProvidersFrom } from '@angular/core';
 
+// TODO: Fix translations on storybook
 const meta: Meta<ButtonComponent> = {
   title: 'Molecules/Button',
   component: ButtonComponent,
   tags: ['autodocs'],
+  decorators: [
+    // moduleMetadata({
+    //   imports: [StorybookModule],
+    // }),
+    applicationConfig({
+      providers: [importProvidersFrom(StorybookModule)],
+    }),
+  ],
   render: (args: ButtonComponent) => ({
     props: {
       ...args,
@@ -28,33 +38,38 @@ type Story = StoryObj<ButtonComponent>;
 // More on writing stories with args: https://storybook.js.org/docs/angular/writing-stories/args
 export const Primary: Story = {
   args: {
-    label: 'Primary',
+    labelKey: 'btn-primary',
+    variant: 'primary',
   },
 };
 
 export const Accent: Story = {
   args: {
+    labelKey: 'Accent',
     variant: 'accent',
-    label: 'Accent',
   },
 };
 
 export const Small: Story = {
   args: {
     size: 'small',
-    label: 'Small Button',
+    labelKey: 'Small',
+    variant: 'primary',
   },
 };
 
 export const Medium: Story = {
   args: {
-    label: 'Medium Button',
+    size: 'medium',
+    labelKey: 'Medium',
+    variant: 'primary',
   },
 };
 
 export const Large: Story = {
   args: {
     size: 'large',
-    label: 'Large Button',
+    labelKey: 'Large',
+    variant: 'primary',
   },
 };

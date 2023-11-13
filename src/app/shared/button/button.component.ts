@@ -12,7 +12,7 @@ export class ButtonComponent {
   /**
    * Defines the label of the button
    */
-  @Input({ required: true }) label!: string;
+  @Input({ required: true }) labelKey!: string;
 
   /**
    * Defines the size of the button

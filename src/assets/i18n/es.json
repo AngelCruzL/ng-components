@@ -1,3 +1,9 @@
 {
-  "sample-btn": "Botón de ejemplo"
+  "btn-send": "Enviar",
+  "btn-cancel": "Cancelar",
+  "btn-primary": "Primary",
+  "btn-accent": "Accent",
+  "btn-small": "Small",
+  "btn-medium": "Medium",
+  "btn-large": "Large"
 }

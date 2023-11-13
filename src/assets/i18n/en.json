@@ -1,3 +1,9 @@
 {
-  "sample-btn": "Sample Button"
+  "btn-send": "Send",
+  "btn-cancel": "Cancel",
+  "btn-primary": "Primary",
+  "btn-accent": "Accent",
+  "btn-small": "Small",
+  "btn-medium": "Medium",
+  "btn-large": "Large"
 }
