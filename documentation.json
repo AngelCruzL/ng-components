@@ -9,7 +9,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-7c5a26af3f297596099d00bc2ebd9866a3a3ea08ca031e012c1369abdc7e0d4997ac65efc693f6a08d4ad50ca63f63a5f52aa2ae8dae008043ca54a58d3363e7",
+            "id": "component-AppComponent-2e28d86e2439d58ce2de0fd0bfcd94297b68ffe1cef640085a6c136800c41609c9dffe9e1a2dd92ca36e401457dc5e5d9051a7159d74178bab6c377039133578",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -37,7 +37,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 27
                 }
             ],
             "methodsClass": [],
@@ -55,18 +55,30 @@
                     "name": "RouterOutlet"
                 },
                 {
+                    "name": "HttpClientModule",
+                    "type": "module"
+                },
+                {
                     "name": "ButtonComponent",
                     "type": "component"
                 },
                 {
                     "name": "InputComponent",
                     "type": "component"
+                },
+                {
+                    "name": "TranslateModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ProfileEditorComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterOutlet } from '@angular/router';\n\nimport { ButtonComponent } from './shared/button/button.component';\nimport { InputComponent } from './shared/input/input.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [CommonModule, RouterOutlet, ButtonComponent, InputComponent],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-17';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClientModule } from '@angular/common/http';\nimport { RouterOutlet } from '@angular/router';\nimport { TranslateModule } from '@ngx-translate/core';\n\nimport { ButtonComponent } from './shared/button/button.component';\nimport { InputComponent } from './shared/input/input.component';\nimport { ProfileEditorComponent } from './profile-editor/profile-editor.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [\n    CommonModule,\n    RouterOutlet,\n    HttpClientModule,\n    ButtonComponent,\n    InputComponent,\n    TranslateModule,\n    ProfileEditorComponent,\n  ],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-17';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -76,11 +88,11 @@
             ],
             "stylesData": "",
             "extends": [],
-            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    label=\"Este es el contenido del botón\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    label=\"Este es un botón primario\"\n    size=\"large\"\n  />\n</div>\n\n<div class=\"container margin-block-start-10\">\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    label=\"Required input\"\n    name=\"required-input\"\n    placeholder=\"Placeholder\"\n    required\n  />\n\n  <app-input\n    [hasLabel]=\"false\"\n    label=\"Input sin label\"\n    name=\"input-without-label\"\n  />\n\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n    readonly\n  />\n</div>\n"
+            "templateData": "<div class=\"container margin-block-start-8\">\n  <app-button\n    class=\"margin-inline-end-6\"\n    labelKey=\"btn-accent\"\n    size=\"large\"\n    variant=\"accent\"\n  />\n\n  <app-button\n    labelKey=\"btn-primary\"\n    size=\"large\"\n  />\n</div>\n\n<div class=\"container margin-block-start-10\">\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n  />\n\n  <app-input\n    label=\"Required input\"\n    name=\"required-input\"\n    placeholder=\"Placeholder\"\n    required\n  />\n\n  <app-input\n    [hasLabel]=\"false\"\n    label=\"Input sin label\"\n    name=\"input-without-label\"\n  />\n\n  <app-input\n    label=\"Este es un input\"\n    name=\"input\"\n    placeholder=\"Placeholder\"\n    readonly\n  />\n</div>\n\n<div class=\"container margin-block-start-10\">\n  <profile-editor-form/>\n</div>\n"
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-594b527bddc4ecf6b65add53458046d8aae0ea3194284c3661c806d8e82611a1bac1cf54472ac80dc0d0e5d63e73594ae3a53730782fe3021d0e592bf63b1706",
+            "id": "component-ButtonComponent-2650056a7cab644c43eaaf0450f17399c235ba5d36af8cb4e136d1de33da185b4ced3c564533ae2183632f1c26c7381fb1bbc11d9d6c6306b4c8e4417fd5de84",
             "file": "src/app/shared/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -98,13 +110,13 @@
             "inputsClass": [
                 {
                     "required": true,
-                    "name": "label",
+                    "name": "labelKey",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
                     "rawdescription": "\n\nDefines the label of the button\n",
                     "description": "<p>Defines the label of the button</p>\n",
-                    "line": 14,
+                    "line": 15,
                     "type": "string",
                     "decorators": []
                 },
@@ -115,7 +127,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nDefines the size of the button\n",
                     "description": "<p>Defines the size of the button</p>\n",
-                    "line": 19,
+                    "line": 20,
                     "type": "\"small\" | \"medium\" | \"large\"",
                     "decorators": []
                 },
@@ -126,7 +138,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nDefines the html type of the button\n",
                     "description": "<p>Defines the html type of the button</p>\n",
-                    "line": 24,
+                    "line": 25,
                     "type": "\"button\" | \"submit\" | \"reset\"",
                     "decorators": []
                 },
@@ -137,7 +149,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nDefines the variant of the button\n",
                     "description": "<p>Defines the variant of the button</p>\n",
-                    "line": 29,
+                    "line": 30,
                     "type": "\"accent\" | \"primary\"",
                     "decorators": []
                 }
@@ -150,7 +162,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptional click handler\n",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 34,
+                    "line": 35,
                     "type": "EventEmitter"
                 }
             ],
@@ -169,7 +181,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "\n\nHandles the click event of the button\n",
@@ -177,8 +189,8 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 853,
-                                "end": 858,
+                                "pos": 928,
+                                "end": 933,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -189,8 +201,8 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
-                                "pos": 847,
-                                "end": 852,
+                                "pos": 922,
+                                "end": 927,
                                 "flags": 16842752,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -211,27 +223,35 @@
                 {
                     "name": "CommonModule",
                     "type": "module"
+                },
+                {
+                    "name": "TranslateModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n})\nexport class ButtonComponent {\n  /**\n   * Defines the label of the button\n   */\n  @Input({ required: true }) label!: string;\n\n  /**\n   * Defines the size of the button\n   */\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Defines the html type of the button\n   */\n  @Input() type: 'button' | 'submit' | 'reset' = 'button';\n\n  /**\n   * Defines the variant of the button\n   */\n  @Input() variant: 'accent' | 'primary' = 'primary';\n\n  /**\n   * Optional click handler\n   */\n  @Output() onClick = new EventEmitter<any>();\n\n  /**\n   * Handles the click event of the button\n   * @param event\n   */\n  onClickButton(event: any) {\n    this.onClick.emit(event);\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TranslateModule } from '@ngx-translate/core';\n\n@Component({\n  selector: 'app-button',\n  standalone: true,\n  imports: [CommonModule, TranslateModule],\n  templateUrl: './button.component.html',\n})\nexport class ButtonComponent {\n  /**\n   * Defines the label of the button\n   */\n  @Input({ required: true }) labelKey!: string;\n\n  /**\n   * Defines the size of the button\n   */\n  @Input() size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Defines the html type of the button\n   */\n  @Input() type: 'button' | 'submit' | 'reset' = 'button';\n\n  /**\n   * Defines the variant of the button\n   */\n  @Input() variant: 'accent' | 'primary' = 'primary';\n\n  /**\n   * Optional click handler\n   */\n  @Output() onClick = new EventEmitter<any>();\n\n  /**\n   * Handles the click event of the button\n   * @param event\n   */\n  onClickButton(event: any) {\n    this.onClick.emit(event);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<button\n  (click)=\"onClickButton($event)\"\n  [attr.data-size]=\"size\"\n  [attr.data-variant]=\"variant\"\n  [type]=\"type\"\n  class=\"button\"\n>\n  {{ label }}\n</button>\n"
+            "templateData": "<button\n  (click)=\"onClickButton($event)\"\n  [attr.data-size]=\"size\"\n  [attr.data-variant]=\"variant\"\n  [type]=\"type\"\n  class=\"button\"\n>\n  {{ labelKey | translate }}\n</button>\n"
         },
         {
             "name": "InputComponent",
-            "id": "component-InputComponent-c00fb131e33327299eadd19c06ed37236fd715f5e9e419b6a3244f3a35bf37312fde98d646cc39b96ad146c58a0b28061666a517d134f9029082fa27790f44b3",
+            "id": "component-InputComponent-1af4dac9286687288e028fb60f8a399d6037dec8f5a732b663860044a2c829b282f3b326c00b0c182467486f69edf79ec4f2e5b2f4caab9f8c0164e0839c8121",
             "file": "src/app/shared/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
-            "providers": [],
+            "providers": [
+                {
+                    "name": "CONTROL_VALUE_ACCESSOR"
+                }
+            ],
             "selector": "app-input",
             "styleUrls": [],
             "styles": [],
@@ -249,7 +269,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWhether to show the label or not\n",
                     "description": "<p>Whether to show the label or not</p>\n",
-                    "line": 14,
+                    "line": 32,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -261,7 +281,7 @@
                     "optional": false,
                     "rawdescription": "\n\nThe label to show if hasLabel is true, if not, this is used as aria-label\n",
                     "description": "<p>The label to show if hasLabel is true, if not, this is used as aria-label</p>\n",
-                    "line": 18,
+                    "line": 36,
                     "type": "string",
                     "decorators": []
                 },
@@ -271,9 +291,9 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "rawdescription": "\n\nThe name of the input\n",
-                    "description": "<p>The name of the input</p>\n",
-                    "line": 38,
+                    "rawdescription": "\n\nThe formControlName of the input to handle with reactive forms\n",
+                    "description": "<p>The formControlName of the input to handle with reactive forms</p>\n",
+                    "line": 56,
                     "type": "string",
                     "decorators": []
                 },
@@ -284,7 +304,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nThe placeholder to show in the input\n",
                     "description": "<p>The placeholder to show in the input</p>\n",
-                    "line": 22,
+                    "line": 40,
                     "type": "string",
                     "decorators": []
                 },
@@ -296,7 +316,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWhether the input is readonly or not\n",
                     "description": "<p>Whether the input is readonly or not</p>\n",
-                    "line": 34,
+                    "line": 52,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -308,7 +328,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nWhether the input is required or not\n",
                     "description": "<p>Whether the input is required or not</p>\n",
-                    "line": 42,
+                    "line": 60,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -319,7 +339,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nThe HTML type of the input\n",
                     "description": "<p>The HTML type of the input</p>\n",
-                    "line": 30,
+                    "line": 48,
                     "type": "\"text\" | \"email\" | \"password\" | \"number\"",
                     "decorators": []
                 },
@@ -330,14 +350,178 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nThe value of the input\n",
                     "description": "<p>The value of the input</p>\n",
-                    "line": 26,
+                    "line": 44,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "#onChangeFn",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "function",
+                    "optional": false,
+                    "description": "",
+                    "line": 63,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "inputValue",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 62
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onChange",
+                    "args": [
+                        {
+                            "name": "$event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "$event",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnChange",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 75,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "registerOnTouched",
+                    "args": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 79,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "fn",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setDisabledState",
+                    "args": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": true,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 83,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "isDisabled",
+                            "type": "boolean",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "writeValue",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 70,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -347,20 +531,167 @@
                 {
                     "name": "CommonModule",
                     "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { booleanAttribute, Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './input.component.html',\n})\nexport class InputComponent {\n  /**\n   * Whether to show the label or not\n   */\n  @Input({ transform: booleanAttribute }) hasLabel = true;\n  /**\n   * The label to show if hasLabel is true, if not, this is used as aria-label\n   */\n  @Input({ required: true }) label!: string;\n  /**\n   * The placeholder to show in the input\n   */\n  @Input() placeholder = '';\n  /**\n   * The value of the input\n   */\n  @Input() value = '';\n  /**\n   * The HTML type of the input\n   */\n  @Input() type: 'text' | 'email' | 'password' | 'number' = 'text';\n  /**\n   * Whether the input is readonly or not\n   */\n  @Input({ transform: booleanAttribute }) readonly = false;\n  /**\n   * The name of the input\n   */\n  @Input({ required: true }) name!: string;\n  /**\n   * Whether the input is required or not\n   */\n  @Input({ transform: booleanAttribute }) required = false;\n}\n",
+            "sourceCode": "import {\n  booleanAttribute,\n  Component,\n  forwardRef,\n  Input,\n  Provider,\n} from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport {\n  ControlValueAccessor,\n  NG_VALUE_ACCESSOR,\n  ReactiveFormsModule,\n} from '@angular/forms';\n\nconst CONTROL_VALUE_ACCESSOR: Provider = {\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => InputComponent),\n  multi: true,\n};\n\n@Component({\n  selector: 'app-input',\n  standalone: true,\n  imports: [CommonModule, ReactiveFormsModule],\n  providers: [CONTROL_VALUE_ACCESSOR],\n  templateUrl: './input.component.html',\n})\nexport class InputComponent implements ControlValueAccessor {\n  /**\n   * Whether to show the label or not\n   */\n  @Input({ transform: booleanAttribute }) hasLabel = true;\n  /**\n   * The label to show if hasLabel is true, if not, this is used as aria-label\n   */\n  @Input({ required: true }) label!: string;\n  /**\n   * The placeholder to show in the input\n   */\n  @Input() placeholder = '';\n  /**\n   * The value of the input\n   */\n  @Input() value = '';\n  /**\n   * The HTML type of the input\n   */\n  @Input() type: 'text' | 'email' | 'password' | 'number' = 'text';\n  /**\n   * Whether the input is readonly or not\n   */\n  @Input({ transform: booleanAttribute }) readonly = false;\n  /**\n   * The formControlName of the input to handle with reactive forms\n   */\n  @Input({ required: true }) name!: string;\n  /**\n   * Whether the input is required or not\n   */\n  @Input({ transform: booleanAttribute }) required = false;\n\n  inputValue = '';\n  #onChangeFn!: (value: string) => void;\n\n  onChange($event: any) {\n    console.log($event.target.value);\n    this.#onChangeFn($event.target.value);\n  }\n\n  writeValue(value: string): void {\n    console.log({ value });\n    this.inputValue = value;\n  }\n\n  registerOnChange(fn: any): void {\n    this.#onChangeFn = fn;\n  }\n\n  registerOnTouched(fn: any): void {\n    // throw new Error('Method not implemented.');\n  }\n\n  setDisabledState?(isDisabled: boolean): void {\n    // throw new Error('Method not implemented.');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "@if (hasLabel) {\n  <label\n    class=\"label\"\n    [for]=\"name\"\n    [ngClass]=\"[\n      required ? 'required' : '',\n      readonly ? 'readonly' : ''\n    ]\"\n  >\n    {{ label }}\n  </label>\n\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [name]=\"name\"\n    [id]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n    [readonly]=\"readonly\"\n  />\n} @else {\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [attr.aria-label]=\"label\"\n    [name]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n    [readonly]=\"readonly\"\n  />\n}\n"
+            "implements": [
+                "ControlValueAccessor"
+            ],
+            "templateData": "@if (hasLabel) {\n  <label\n    class=\"label\"\n    [for]=\"name\"\n    [ngClass]=\"[\n      required ? 'required' : '',\n      readonly ? 'readonly' : ''\n    ]\"\n  >\n    {{ label }}\n  </label>\n\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    (change)=\"onChange($event)\"\n    [id]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n    [readonly]=\"readonly\"\n    [value]=\"inputValue\"\n  />\n} @else {\n  <input\n    class=\"input\"\n    [type]=\"type\"\n    [attr.aria-label]=\"label\"\n    [name]=\"name\"\n    [placeholder]=\"placeholder\"\n    [required]=\"required\"\n    [readonly]=\"readonly\"\n    (change)=\"onChange($event)\"\n    [value]=\"inputValue\"\n  />\n}\n"
+        },
+        {
+            "name": "ProfileEditorComponent",
+            "id": "component-ProfileEditorComponent-8e5d2dd54e69c6389d52e5aad54e8576222bd690af46d5642b1fe462e80b2c5bc328b7f1d13ea20980854b782c668b07ea1e58db0a58e68453ab49b7e681dd22",
+            "file": "src/app/profile-editor/profile-editor.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "profile-editor-form",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "templateUrl": [
+                "./profile-editor.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "#formBuilder",
+                    "defaultValue": "inject(FormBuilder)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "profileForm",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "FormGroup",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 31,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                },
+                {
+                    "name": "InputComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, inject, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\nimport { InputComponent } from '../shared/input/input.component';\nimport { ButtonComponent } from '../shared/button/button.component';\n\n@Component({\n  selector: 'profile-editor-form',\n  standalone: true,\n  imports: [CommonModule, ReactiveFormsModule, InputComponent, ButtonComponent],\n  templateUrl: './profile-editor.component.html',\n  styles: ``,\n})\nexport class ProfileEditorComponent implements OnInit {\n  profileForm!: FormGroup;\n  #formBuilder = inject(FormBuilder);\n\n  ngOnInit(): void {\n    this.profileForm = this.#formBuilder.group({\n      firstName: [''],\n      lastName: [''],\n      address: this.#formBuilder.group({\n        street: [''],\n        city: [''],\n        state: [''],\n        zip: [''],\n      }),\n    });\n  }\n\n  onSubmit(): void {\n    console.log(this.profileForm.value);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n",
+            "extends": [],
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<form (ngSubmit)=\"onSubmit()\" [formGroup]=\"profileForm\">\n  <legend>Profile</legend>\n\n  <div>\n    <app-input\n      formControlName=\"firstName\"\n      label=\"First Name\"\n      name=\"firstName\"\n    />\n\n    <app-input\n      formControlName=\"lastName\"\n      label=\"Last Name\"\n      name=\"lastName\"\n    />\n\n    <app-button labelKey=\"btn-send\" type=\"submit\"/>\n  </div>\n</form>\n"
         }
     ],
-    "modules": [],
+    "modules": [
+        {
+            "name": "StorybookModule",
+            "id": "module-StorybookModule-6e70ba5f4200ae7d1ce51f45d892b62d793a42999329baeb11fbc400e21a02ac22961b3d19c56a807c66788c33e2b2151d6d9414f292de833fd03fe4c957cc59",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/config/storybook/storybook.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClient, HttpClientModule } from '@angular/common/http';\nimport {\n  TranslateLoader,\n  TranslateModule,\n  TranslateService,\n} from '@ngx-translate/core';\n\nimport { HttpLoaderFactory } from '../../app.config';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    HttpClientModule,\n    TranslateModule.forRoot({\n      defaultLanguage: 'en',\n      loader: {\n        provide: TranslateLoader,\n        useFactory: HttpLoaderFactory,\n        deps: [HttpClient],\n      },\n    }),\n  ],\n})\nexport class StorybookModule {\n  constructor(translateService: TranslateService) {\n    translateService.setDefaultLang('en');\n    translateService.use('en');\n  }\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
     "miscellaneous": {
         "variables": [
             {
@@ -371,7 +702,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    variant: 'accent',\n    label: 'Accent',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    labelKey: 'Accent',\n    variant: 'accent',\n  },\n}"
             },
             {
                 "name": "appConfig",
@@ -381,7 +712,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ApplicationConfig",
-                "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
+                "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    provideHttpClient(),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        defaultLanguage: 'en',\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
+            },
+            {
+                "name": "CONTROL_VALUE_ACCESSOR",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/input/input.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Provider",
+                "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => InputComponent),\n  multi: true,\n}"
             },
             {
                 "name": "InputEmail",
@@ -461,7 +802,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    labelKey: 'Large',\n    variant: 'primary',\n  },\n}"
             },
             {
                 "name": "Medium",
@@ -471,7 +812,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Medium Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'medium',\n    labelKey: 'Medium',\n    variant: 'primary',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -481,7 +822,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
+                "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookModule],\n    }),\n  ],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n    template: `\n      <app-button\n        [labelKey]=\"Button\"\n        [variant]=\"variant\"\n        [size]=\"size\"\n        [type]=\"type\"\n        (onClick)=\"onClick($event)\"\n      />\n    `,\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
             },
             {
                 "name": "meta",
@@ -511,7 +852,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Primary',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    labelKey: 'btn-primary',\n    variant: 'primary',\n  },\n}"
             },
             {
                 "name": "Small",
@@ -521,7 +862,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    labelKey: 'Small',\n    variant: 'primary',\n  },\n}"
             }
         ],
         "functions": [
@@ -589,7 +930,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    variant: 'accent',\n    label: 'Accent',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    labelKey: 'Accent',\n    variant: 'accent',\n  },\n}"
                 },
                 {
                     "name": "Large",
@@ -599,7 +940,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    labelKey: 'Large',\n    variant: 'primary',\n  },\n}"
                 },
                 {
                     "name": "Medium",
@@ -609,7 +950,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Medium Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'medium',\n    labelKey: 'Medium',\n    variant: 'primary',\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -619,7 +960,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
+                    "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookModule],\n    }),\n  ],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n    template: `\n      <app-button\n        [labelKey]=\"Button\"\n        [variant]=\"variant\"\n        [size]=\"size\"\n        [type]=\"type\"\n        (onClick)=\"onClick($event)\"\n      />\n    `,\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
                 },
                 {
                     "name": "Primary",
@@ -629,7 +970,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Primary',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    labelKey: 'btn-primary',\n    variant: 'primary',\n  },\n}"
                 },
                 {
                     "name": "Small",
@@ -639,7 +980,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    labelKey: 'Small',\n    variant: 'primary',\n  },\n}"
                 }
             ],
             "src/app/app.config.ts": [
@@ -651,7 +992,19 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ApplicationConfig",
-                    "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
+                    "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    provideHttpClient(),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        defaultLanguage: 'en',\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
+                }
+            ],
+            "src/app/shared/input/input.component.ts": [
+                {
+                    "name": "CONTROL_VALUE_ACCESSOR",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/input/input.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Provider",
+                    "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => InputComponent),\n  multi: true,\n}"
                 }
             ],
             "src/app/shared/input/input.stories.ts": [
@@ -813,7 +1166,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 6,
         "status": "low",
         "files": [
             {
@@ -853,6 +1206,15 @@
                 "name": "appConfig",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/profile-editor/profile-editor.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ProfileEditorComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -929,9 +1291,19 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "InputComponent",
-                "coveragePercent": 88,
-                "coverageCount": "8/9",
-                "status": "very-good"
+                "coveragePercent": 50,
+                "coverageCount": "8/16",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/app/shared/input/input.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CONTROL_VALUE_ACCESSOR",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
             },
             {
                 "filePath": "src/app/shared/input/input.stories.ts",

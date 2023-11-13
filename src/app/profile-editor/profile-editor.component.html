@@ -1,0 +1,19 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="profileForm">
+  <legend>Profile</legend>
+
+  <div>
+    <app-input
+      formControlName="firstName"
+      label="First Name"
+      name="firstName"
+    />
+
+    <app-input
+      formControlName="lastName"
+      label="Last Name"
+      name="lastName"
+    />
+
+    <app-button labelKey="btn-send" type="submit"/>
+  </div>
+</form>
