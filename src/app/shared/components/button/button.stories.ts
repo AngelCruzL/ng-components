@@ -1,8 +1,8 @@
+import { importProvidersFrom } from '@angular/core';
 import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
 
+import { StorybookModule } from '@core/config/storybook/storybook.module';
 import { ButtonComponent } from './button.component';
-import { StorybookModule } from '../../config/storybook/storybook.module';
-import { importProvidersFrom } from '@angular/core';
 
 // TODO: Fix translations on storybook
 const meta: Meta<ButtonComponent> = {

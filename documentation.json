@@ -5,11 +5,42 @@
     "guards": [],
     "interceptors": [],
     "classes": [],
-    "directives": [],
+    "directives": [
+        {
+            "name": "ErrorLabelDirective",
+            "id": "directive-ErrorLabelDirective-8052357c2ca07dfd04b1c41c3f5e5c265ad6ea44967491e5d2a2e369428e41c987ce9ac65060e90d7225b3627a16ed95598a4f18b74cb56140386e07c4c1ee39",
+            "file": "src/app/shared/directives/error-label.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[appErrorLabel]',\n  standalone: true\n})\nexport class ErrorLabelDirective {\n\n  constructor() { }\n\n}\n",
+            "selector": "[appErrorLabel]",
+            "providers": [],
+            "hostDirectives": [],
+            "standalone": true,
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "extends": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 7
+            }
+        }
+    ],
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-2e28d86e2439d58ce2de0fd0bfcd94297b68ffe1cef640085a6c136800c41609c9dffe9e1a2dd92ca36e401457dc5e5d9051a7159d74178bab6c377039133578",
+            "id": "component-AppComponent-6e2a36206707c7abf14fc9fb00a695e1bd2eea30cf96adc1a8fa94223cf0bd01d8bc1213747d663dfa2386ca90d4ff6500627eefef9ab2f2571fa3d42bab5b2f",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -78,7 +109,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClientModule } from '@angular/common/http';\nimport { RouterOutlet } from '@angular/router';\nimport { TranslateModule } from '@ngx-translate/core';\n\nimport { ButtonComponent } from './shared/button/button.component';\nimport { InputComponent } from './shared/input/input.component';\nimport { ProfileEditorComponent } from './profile-editor/profile-editor.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [\n    CommonModule,\n    RouterOutlet,\n    HttpClientModule,\n    ButtonComponent,\n    InputComponent,\n    TranslateModule,\n    ProfileEditorComponent,\n  ],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-17';\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClientModule } from '@angular/common/http';\nimport { RouterOutlet } from '@angular/router';\nimport { TranslateModule } from '@ngx-translate/core';\n\nimport { ButtonComponent } from './shared/components/button/button.component';\nimport { InputComponent } from './shared/components/input/input.component';\nimport { ProfileEditorComponent } from './profile-editor/profile-editor.component';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [\n    CommonModule,\n    RouterOutlet,\n    HttpClientModule,\n    ButtonComponent,\n    InputComponent,\n    TranslateModule,\n    ProfileEditorComponent,\n  ],\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'angular-17';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -93,7 +124,7 @@
         {
             "name": "ButtonComponent",
             "id": "component-ButtonComponent-2650056a7cab644c43eaaf0450f17399c235ba5d36af8cb4e136d1de33da185b4ced3c564533ae2183632f1c26c7381fb1bbc11d9d6c6306b4c8e4417fd5de84",
-            "file": "src/app/shared/button/button.component.ts",
+            "file": "src/app/shared/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -242,7 +273,7 @@
         {
             "name": "InputComponent",
             "id": "component-InputComponent-1af4dac9286687288e028fb60f8a399d6037dec8f5a732b663860044a2c829b282f3b326c00b0c182467486f69edf79ec4f2e5b2f4caab9f8c0164e0839c8121",
-            "file": "src/app/shared/input/input.component.ts",
+            "file": "src/app/shared/components/input/input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -552,7 +583,7 @@
         },
         {
             "name": "ProfileEditorComponent",
-            "id": "component-ProfileEditorComponent-8e5d2dd54e69c6389d52e5aad54e8576222bd690af46d5642b1fe462e80b2c5bc328b7f1d13ea20980854b782c668b07ea1e58db0a58e68453ab49b7e681dd22",
+            "id": "component-ProfileEditorComponent-3a9f8757db473040840664b0bafc757481b2c12c79778912a95f79636a6646bf74fdd8ada6781a8d6c306e5c4e5ceb99362cdd668e4455b4712e616247f854c8",
             "file": "src/app/profile-editor/profile-editor.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -643,7 +674,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, inject, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\nimport { InputComponent } from '../shared/input/input.component';\nimport { ButtonComponent } from '../shared/button/button.component';\n\n@Component({\n  selector: 'profile-editor-form',\n  standalone: true,\n  imports: [CommonModule, ReactiveFormsModule, InputComponent, ButtonComponent],\n  templateUrl: './profile-editor.component.html',\n  styles: ``,\n})\nexport class ProfileEditorComponent implements OnInit {\n  profileForm!: FormGroup;\n  #formBuilder = inject(FormBuilder);\n\n  ngOnInit(): void {\n    this.profileForm = this.#formBuilder.group({\n      firstName: [''],\n      lastName: [''],\n      address: this.#formBuilder.group({\n        street: [''],\n        city: [''],\n        state: [''],\n        zip: [''],\n      }),\n    });\n  }\n\n  onSubmit(): void {\n    console.log(this.profileForm.value);\n  }\n}\n",
+            "sourceCode": "import { Component, inject, OnInit } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';\nimport { InputComponent } from '../shared/components/input/input.component';\nimport { ButtonComponent } from '../shared/components/button/button.component';\n\n@Component({\n  selector: 'profile-editor-form',\n  standalone: true,\n  imports: [CommonModule, ReactiveFormsModule, InputComponent, ButtonComponent],\n  templateUrl: './profile-editor.component.html',\n  styles: ``,\n})\nexport class ProfileEditorComponent implements OnInit {\n  profileForm!: FormGroup;\n  #formBuilder = inject(FormBuilder);\n\n  ngOnInit(): void {\n    this.profileForm = this.#formBuilder.group({\n      firstName: [''],\n      lastName: [''],\n      address: this.#formBuilder.group({\n        street: [''],\n        city: [''],\n        state: [''],\n        zip: [''],\n      }),\n    });\n  }\n\n  onSubmit(): void {\n    console.log(this.profileForm.value);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n",
@@ -657,13 +688,13 @@
     "modules": [
         {
             "name": "StorybookModule",
-            "id": "module-StorybookModule-6e70ba5f4200ae7d1ce51f45d892b62d793a42999329baeb11fbc400e21a02ac22961b3d19c56a807c66788c33e2b2151d6d9414f292de833fd03fe4c957cc59",
+            "id": "module-StorybookModule-0bb928e6fa2fd1577fe02a504eb8608e854775046877d8c782d718bdb3c1a75f085bd723b68c2fd2e63b60473d945992f3de1c04564eb778ce62d2be68e8a214",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
-            "file": "src/app/config/storybook/storybook.module.ts",
+            "file": "src/app/core/config/storybook/storybook.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClient, HttpClientModule } from '@angular/common/http';\nimport {\n  TranslateLoader,\n  TranslateModule,\n  TranslateService,\n} from '@ngx-translate/core';\n\nimport { HttpLoaderFactory } from '../../app.config';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    HttpClientModule,\n    TranslateModule.forRoot({\n      defaultLanguage: 'en',\n      loader: {\n        provide: TranslateLoader,\n        useFactory: HttpLoaderFactory,\n        deps: [HttpClient],\n      },\n    }),\n  ],\n})\nexport class StorybookModule {\n  constructor(translateService: TranslateService) {\n    translateService.setDefaultLang('en');\n    translateService.use('en');\n  }\n}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HttpClient, HttpClientModule } from '@angular/common/http';\nimport {\n  TranslateLoader,\n  TranslateModule,\n  TranslateService,\n} from '@ngx-translate/core';\n\nimport { HttpLoaderFactory } from '../../../app.config';\n\n@NgModule({\n  declarations: [],\n  imports: [\n    CommonModule,\n    HttpClientModule,\n    TranslateModule.forRoot({\n      defaultLanguage: 'en',\n      loader: {\n        provide: TranslateLoader,\n        useFactory: HttpLoaderFactory,\n        deps: [HttpClient],\n      },\n    }),\n  ],\n})\nexport class StorybookModule {\n  constructor(translateService: TranslateService) {\n    translateService.setDefaultLang('en');\n    translateService.use('en');\n  }\n}\n",
             "children": [
                 {
                     "type": "providers",
@@ -698,7 +729,7 @@
                 "name": "Accent",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -718,7 +749,7 @@
                 "name": "CONTROL_VALUE_ACCESSOR",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.component.ts",
+                "file": "src/app/shared/components/input/input.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Provider",
@@ -728,7 +759,7 @@
                 "name": "InputEmail",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -738,7 +769,7 @@
                 "name": "InputNumber",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -748,7 +779,7 @@
                 "name": "InputPassword",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -758,7 +789,7 @@
                 "name": "InputReadonly",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -768,7 +799,7 @@
                 "name": "InputRequiredWithLabel",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -778,7 +809,7 @@
                 "name": "InputWithLabel",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -788,7 +819,7 @@
                 "name": "InputWithoutLabel",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -798,7 +829,7 @@
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -808,7 +839,7 @@
                 "name": "Medium",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -818,21 +849,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookModule],\n    }),\n  ],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n    template: `\n      <app-button\n        [labelKey]=\"Button\"\n        [variant]=\"variant\"\n        [size]=\"size\"\n        [type]=\"type\"\n        (onClick)=\"onClick($event)\"\n      />\n    `,\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n  render: (args: InputComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    readonly: {\n      control: 'boolean',\n    },\n  },\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/input/input.stories.ts",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<InputComponent>",
-                "defaultValue": "{\n  title: 'Molecules/Input',\n  component: InputComponent,\n  tags: ['autodocs'],\n  render: (args: InputComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    readonly: {\n      control: 'boolean',\n    },\n  },\n}"
+                "type": "Meta<ButtonComponent>",
+                "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  decorators: [\n    // moduleMetadata({\n    //   imports: [StorybookModule],\n    // }),\n    applicationConfig({\n      providers: [importProvidersFrom(StorybookModule)],\n    }),\n  ],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
             },
             {
                 "name": "preview",
@@ -848,7 +879,7 @@
                 "name": "Primary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -858,7 +889,7 @@
                 "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/shared/button/button.stories.ts",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -900,8 +931,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ButtonComponent>",
-                "file": "src/app/shared/button/button.stories.ts",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "src/app/shared/components/input/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -911,8 +942,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<InputComponent>",
-                "file": "src/app/shared/input/input.stories.ts",
+                "rawtype": "StoryObj<ButtonComponent>",
+                "file": "src/app/shared/components/button/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -921,12 +952,12 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "src/app/shared/button/button.stories.ts": [
+            "src/app/shared/components/button/button.stories.ts": [
                 {
                     "name": "Accent",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -936,7 +967,7 @@
                     "name": "Large",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -946,7 +977,7 @@
                     "name": "Medium",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -956,17 +987,17 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookModule],\n    }),\n  ],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n    template: `\n      <app-button\n        [labelKey]=\"Button\"\n        [variant]=\"variant\"\n        [size]=\"size\"\n        [type]=\"type\"\n        (onClick)=\"onClick($event)\"\n      />\n    `,\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
+                    "defaultValue": "{\n  title: 'Molecules/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  decorators: [\n    // moduleMetadata({\n    //   imports: [StorybookModule],\n    // }),\n    applicationConfig({\n      providers: [importProvidersFrom(StorybookModule)],\n    }),\n  ],\n  render: (args: ButtonComponent) => ({\n    props: {\n      ...args,\n    },\n  }),\n  argTypes: {\n    type: {\n      control: 'select',\n    },\n    size: {\n      control: 'select',\n    },\n  },\n}"
                 },
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -976,7 +1007,7 @@
                     "name": "Small",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -995,24 +1026,24 @@
                     "defaultValue": "{\n  providers: [\n    provideRouter(routes),\n    provideHttpClient(),\n    importProvidersFrom(\n      TranslateModule.forRoot({\n        defaultLanguage: 'en',\n        loader: {\n          provide: TranslateLoader,\n          useFactory: HttpLoaderFactory,\n          deps: [HttpClient],\n        },\n      }),\n    ),\n  ],\n}"
                 }
             ],
-            "src/app/shared/input/input.component.ts": [
+            "src/app/shared/components/input/input.component.ts": [
                 {
                     "name": "CONTROL_VALUE_ACCESSOR",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.component.ts",
+                    "file": "src/app/shared/components/input/input.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Provider",
                     "defaultValue": "{\n  provide: NG_VALUE_ACCESSOR,\n  useExisting: forwardRef(() => InputComponent),\n  multi: true,\n}"
                 }
             ],
-            "src/app/shared/input/input.stories.ts": [
+            "src/app/shared/components/input/input.stories.ts": [
                 {
                     "name": "InputEmail",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1022,7 +1053,7 @@
                     "name": "InputNumber",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1032,7 +1063,7 @@
                     "name": "InputPassword",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1042,7 +1073,7 @@
                     "name": "InputReadonly",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1052,7 +1083,7 @@
                     "name": "InputRequiredWithLabel",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1062,7 +1093,7 @@
                     "name": "InputWithLabel",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1072,7 +1103,7 @@
                     "name": "InputWithoutLabel",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -1082,7 +1113,7 @@
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InputComponent>",
@@ -1136,26 +1167,26 @@
         },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
-            "src/app/shared/button/button.stories.ts": [
+            "src/app/shared/components/input/input.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<ButtonComponent>",
-                    "file": "src/app/shared/button/button.stories.ts",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "src/app/shared/components/input/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
                     "kind": 183
                 }
             ],
-            "src/app/shared/input/input.stories.ts": [
+            "src/app/shared/components/button/button.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<InputComponent>",
-                    "file": "src/app/shared/input/input.stories.ts",
+                    "rawtype": "StoryObj<ButtonComponent>",
+                    "file": "src/app/shared/components/button/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1166,7 +1197,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 6,
+        "count": 5,
         "status": "low",
         "files": [
             {
@@ -1218,7 +1249,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/button/button.component.ts",
+                "filePath": "src/app/shared/components/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
@@ -1227,7 +1258,7 @@
                 "status": "very-good"
             },
             {
-                "filePath": "src/app/shared/button/button.stories.ts",
+                "filePath": "src/app/shared/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1237,7 +1268,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/button/button.stories.ts",
+                "filePath": "src/app/shared/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1247,7 +1278,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/button/button.stories.ts",
+                "filePath": "src/app/shared/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1257,7 +1288,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/button/button.stories.ts",
+                "filePath": "src/app/shared/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1267,7 +1298,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/button/button.stories.ts",
+                "filePath": "src/app/shared/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1277,7 +1308,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/button/button.stories.ts",
+                "filePath": "src/app/shared/components/button/button.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1287,7 +1318,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.component.ts",
+                "filePath": "src/app/shared/components/input/input.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "InputComponent",
@@ -1296,7 +1327,7 @@
                 "status": "medium"
             },
             {
-                "filePath": "src/app/shared/input/input.component.ts",
+                "filePath": "src/app/shared/components/input/input.component.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1306,7 +1337,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1316,7 +1347,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1326,7 +1357,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1336,7 +1367,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1346,7 +1377,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1356,7 +1387,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1366,7 +1397,7 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1376,13 +1407,22 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/shared/input/input.stories.ts",
+                "filePath": "src/app/shared/components/input/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/directives/error-label.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ErrorLabelDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             }
         ]

@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import {
   ControlValueAccessor,
+  FormGroup,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -58,6 +59,10 @@ export class InputComponent implements ControlValueAccessor {
    * Whether the input is required or not
    */
   @Input({ transform: booleanAttribute }) required = false;
+  /**
+   * The formGroup of the input to handle with reactive forms
+   */
+  @Input({ required: true }) formGroup!: FormGroup;
 
   inputValue = '';
   #onChangeFn!: (value: string) => void;

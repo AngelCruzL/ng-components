@@ -4,8 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-import { ButtonComponent } from './shared/button/button.component';
-import { InputComponent } from './shared/input/input.component';
+import { ButtonComponent, InputComponent } from '@shared/components';
 import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @Component({

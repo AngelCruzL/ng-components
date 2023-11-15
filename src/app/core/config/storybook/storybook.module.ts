@@ -7,7 +7,7 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 
-import { HttpLoaderFactory } from '../../app.config';
+import { HttpLoaderFactory } from '../../../app.config';
 
 @NgModule({
   declarations: [],

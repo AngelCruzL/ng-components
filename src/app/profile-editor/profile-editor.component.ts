@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { InputComponent } from '../shared/input/input.component';
-import { ButtonComponent } from '../shared/button/button.component';
+import { InputComponent } from '../shared/components/input/input.component';
+import { ButtonComponent } from '../shared/components/button/button.component';
 
 @Component({
   selector: 'profile-editor-form',
