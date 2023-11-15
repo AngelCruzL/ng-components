@@ -14,6 +14,11 @@
   text-transform: $button-text-transform;
   transition: background-color 275ms ease, color 275ms ease;
 
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
   &[data-variant="accent"] {
     background-color: $button-accent-background;

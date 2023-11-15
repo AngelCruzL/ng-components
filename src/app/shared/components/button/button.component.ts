@@ -30,6 +30,11 @@ export class ButtonComponent {
   @Input() variant: 'accent' | 'primary' = 'primary';
 
   /**
+   * Whether the button is disabled or not
+   */
+  @Input({ required: true }) disabled = true;
+
+  /**
    * Optional click handler
    */
   @Output() onClick = new EventEmitter<any>();
