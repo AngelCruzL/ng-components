@@ -1,6 +1,7 @@
 @if (hasLabel) {
   <label
     class="label"
+    [classList]="additionalClasses"
     [for]="name"
     [ngClass]="[
       required ? 'required' : '',
@@ -20,6 +21,8 @@
     [readonly]="readonly"
     [value]="inputValue"
   />
+
+  <span error-label [errors]="errors" [isTouched]="false" [labelErrorField]="name"></span>
 } @else {
   <input
     class="input"

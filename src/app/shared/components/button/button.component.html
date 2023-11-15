@@ -2,9 +2,9 @@
   (click)="onClickButton($event)"
   [attr.data-size]="size"
   [attr.data-variant]="variant"
+  [class]="'button ' + additionalClasses"
   [disabled]="disabled"
   [type]="type"
-  class="button"
 >
   {{ labelKey | translate }}
 </button>

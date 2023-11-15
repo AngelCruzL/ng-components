@@ -39,6 +39,8 @@ export class ButtonComponent {
    */
   @Output() onClick = new EventEmitter<any>();
 
+  @Input() additionalClasses = '';
+
   /**
    * Handles the click event of the button
    * @param event

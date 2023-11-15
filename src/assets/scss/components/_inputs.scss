@@ -53,3 +53,13 @@
     }
   }
 }
+
+.error-label {
+  position: absolute;
+  display: block;
+  color: red;
+  font-size: $font-size-300;
+  font-weight: $font-weight-default;
+  margin-block-start: $size-1;
+  margin-inline-start: $size-2;
+}

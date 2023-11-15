@@ -1,5 +1,6 @@
 <div class="container margin-block-start-8">
   <app-button
+    [disabled]="true"
     class="margin-inline-end-6"
     labelKey="btn-accent"
     size="large"
@@ -7,39 +8,40 @@
   />
 
   <app-button
+    [disabled]="false"
     labelKey="btn-primary"
     size="large"
   />
 </div>
 
+<!--<div class="container margin-block-start-10">-->
+<!--  <app-input-->
+<!--    label="Este es un input"-->
+<!--    name="input"-->
+<!--    placeholder="Placeholder"-->
+<!--  />-->
+
+<!--  <app-input-->
+<!--    label="Required input"-->
+<!--    name="required-input"-->
+<!--    placeholder="Placeholder"-->
+<!--    required-->
+<!--  />-->
+
+<!--  <app-input-->
+<!--    [hasLabel]="false"-->
+<!--    label="Input sin label"-->
+<!--    name="input-without-label"-->
+<!--  />-->
+
+<!--  <app-input-->
+<!--    label="Este es un input"-->
+<!--    name="input"-->
+<!--    placeholder="Placeholder"-->
+<!--    readonly-->
+<!--  />-->
+<!--</div>-->
+
 <div class="container margin-block-start-10">
-  <app-input
-    label="Este es un input"
-    name="input"
-    placeholder="Placeholder"
-  />
-
-  <app-input
-    label="Required input"
-    name="required-input"
-    placeholder="Placeholder"
-    required
-  />
-
-  <app-input
-    [hasLabel]="false"
-    label="Input sin label"
-    name="input-without-label"
-  />
-
-  <app-input
-    label="Este es un input"
-    name="input"
-    placeholder="Placeholder"
-    readonly
-  />
-</div>
-
-<div class="container margin-block-start-10">
-  <profile-editor-form/>
+  <profile-editor-form />
 </div>

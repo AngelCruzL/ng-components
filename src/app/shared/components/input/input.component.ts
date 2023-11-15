@@ -11,7 +11,10 @@ import {
   FormGroup,
   NG_VALUE_ACCESSOR,
   ReactiveFormsModule,
+  ValidationErrors,
 } from '@angular/forms';
+
+import { ErrorLabelDirective } from '@shared/directives/error-label.directive';
 
 const CONTROL_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
@@ -22,7 +25,7 @@ const CONTROL_VALUE_ACCESSOR: Provider = {
 @Component({
   selector: 'app-input',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ErrorLabelDirective],
   providers: [CONTROL_VALUE_ACCESSOR],
   templateUrl: './input.component.html',
 })
@@ -63,26 +66,34 @@ export class InputComponent implements ControlValueAccessor {
    * The formGroup of the input to handle with reactive forms
    */
   @Input({ required: true }) formGroup!: FormGroup;
+  /**
+   * The errors of the input to handle with reactive forms
+   */
+  @Input({ required: true }) errors!: ValidationErrors | null;
+
+  // @Input({ required: true }) isTouched!: boolean;
+
+  @Input() additionalClasses = '';
 
   inputValue = '';
   #onChangeFn!: (value: string) => void;
+  #onTouchFn!: () => void;
 
   onChange($event: any) {
-    console.log($event.target.value);
     this.#onChangeFn($event.target.value);
+    // this.#onTouchFn($event.target.value);
   }
 
   writeValue(value: string): void {
-    console.log({ value });
     this.inputValue = value;
   }
 
-  registerOnChange(fn: any): void {
+  registerOnChange(fn: () => void): void {
     this.#onChangeFn = fn;
   }
 
-  registerOnTouched(fn: any): void {
-    // throw new Error('Method not implemented.');
+  registerOnTouched(fn: () => void): void {
+    this.#onTouchFn = fn;
   }
 
   setDisabledState?(isDisabled: boolean): void {

@@ -1,8 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { InputComponent } from '../shared/components/input/input.component';
-import { ButtonComponent } from '../shared/components/button/button.component';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+
+import { ButtonComponent, InputComponent } from '@shared/components';
 
 @Component({
   selector: 'profile-editor-form',
@@ -17,8 +22,9 @@ export class ProfileEditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileForm = this.#formBuilder.group({
-      firstName: [''],
-      lastName: [''],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       address: this.#formBuilder.group({
         street: [''],
         city: [''],
