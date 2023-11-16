@@ -5,7 +5,6 @@
     <app-input
       [errors]="profileForm.get('firstName')?.errors!"
       [formGroup]="profileForm"
-      additionalClasses="margin-block-start-6"
       formControlName="firstName"
       label="First Name"
       name="firstName"
@@ -27,19 +26,19 @@
       formControlName="email"
       label="Email"
       name="email"
+      type="email"
     />
 
     <app-button
       [disabled]="profileForm.invalid"
-      additionalClasses="margin-block-start-6"
+      additionalClasses="margin-block-start-8"
       labelKey="btn-send"
       type="submit"
     />
   </div>
 </form>
 
-<pre>{{ profileForm.get('firstName')?.touched }}</pre>
-<pre>{{ profileForm.get('lastName')?.touched }}</pre>
-<pre>{{ profileForm.get('email')?.touched }}</pre>
 <pre>Invalid: {{ profileForm.invalid }}</pre>
-<pre>Errors: {{ profileForm.errors | json }}</pre>
+<pre>FN errors: {{ profileForm.get('firstName')?.errors | json }}</pre>
+<pre>LN errors: {{ profileForm.get('lastName')?.errors | json }}</pre>
+<pre>Email errors: {{ profileForm.get('email')?.errors | json }}</pre>

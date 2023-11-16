@@ -20,9 +20,15 @@
     [required]="required"
     [readonly]="readonly"
     [value]="inputValue"
+    (blur)="onBlur()"
   />
 
-  <span error-label [errors]="errors" [isTouched]="false" [labelErrorField]="name"></span>
+  <span
+    error-label
+    [errors]="errors"
+    [isTouched]="formGroup.get(name)?.touched!"
+    [labelErrorField]="name"
+  ></span>
 } @else {
   <input
     class="input"
@@ -34,5 +40,6 @@
     [readonly]="readonly"
     (change)="onChange($event)"
     [value]="inputValue"
+    (blur)="onBlur()"
   />
 }

@@ -81,7 +81,10 @@ export class InputComponent implements ControlValueAccessor {
 
   onChange($event: any) {
     this.#onChangeFn($event.target.value);
-    // this.#onTouchFn($event.target.value);
+  }
+
+  onBlur(): void {
+    this.#onTouchFn();
   }
 
   writeValue(value: string): void {

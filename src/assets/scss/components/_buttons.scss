@@ -14,8 +14,7 @@
   text-transform: $button-text-transform;
   transition: background-color 275ms ease, color 275ms ease;
 
-  &:disabled,
-  &[disabled] {
+  &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
   }
@@ -24,7 +23,7 @@
     background-color: $button-accent-background;
     color: $button-accent-color;
 
-    &:is(:hover, :focus) {
+    &:is(:hover, :focus):not(:disabled) {
       background-color: $button-accent-background-hover;
       color: $button-accent-color-hover;
     }
@@ -38,7 +37,7 @@
       outline: 2px solid $input-border-color-active;
     }
 
-    &:is(:hover, :focus) {
+    &:is(:hover, :focus):not(:disabled) {
       background-color: $button-primary-background-hover;
       color: $button-primary-color-hover;
     }

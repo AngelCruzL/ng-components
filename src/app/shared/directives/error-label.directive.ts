@@ -42,7 +42,7 @@ export class ErrorLabelDirective {
 
     const errors = Object.keys(this.#errors);
 
-    if (errors.includes('required')) {
+    if (this.#isTouched && errors.includes('required')) {
       this.#htmlElement.nativeElement.textContent = `El campo ${
         this.#labelErrorField
       } es requerido`;
@@ -50,7 +50,7 @@ export class ErrorLabelDirective {
       return;
     }
 
-    if (this.isTouched && errors.includes('minlength')) {
+    if (this.#isTouched && errors.includes('minlength')) {
       const minLength = this.#errors['minlength']['requiredLength'];
       const currentLength = this.#errors['minlength']['actualLength'];
 
@@ -59,7 +59,7 @@ export class ErrorLabelDirective {
       return;
     }
 
-    if (this.isTouched && errors.includes('email')) {
+    if (this.#isTouched && errors.includes('email')) {
       this.#htmlElement.nativeElement.textContent = `El campo debe ser un correo electrónico`;
       this.#htmlElement.nativeElement.style.color = this.#color;
       return;
