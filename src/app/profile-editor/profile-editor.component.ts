@@ -25,12 +25,7 @@ export class ProfileEditorComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      address: this.#formBuilder.group({
-        street: [''],
-        city: [''],
-        state: [''],
-        zip: [''],
-      }),
+      password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 

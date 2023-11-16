@@ -2,7 +2,7 @@
   <label
     class="label"
     [classList]="additionalClasses"
-    [for]="name"
+    [for]="formControlName"
     [ngClass]="[
       required ? 'required' : '',
       readonly ? 'readonly' : ''
@@ -15,7 +15,7 @@
     class="input"
     [type]="type"
     (change)="onChange($event)"
-    [id]="name"
+    [id]="formControlName"
     [placeholder]="placeholder"
     [required]="required"
     [readonly]="readonly"
@@ -26,15 +26,14 @@
   <span
     error-label
     [errors]="errors"
-    [isTouched]="formGroup.get(name)?.touched!"
-    [labelErrorField]="name"
+    [isTouched]="formGroup.get(formControlName)?.touched!"
+    [labelErrorField]="formControlName"
   ></span>
 } @else {
   <input
     class="input"
     [type]="type"
     [attr.aria-label]="label"
-    [name]="name"
     [placeholder]="placeholder"
     [required]="required"
     [readonly]="readonly"
@@ -42,4 +41,11 @@
     [value]="inputValue"
     (blur)="onBlur()"
   />
+  
+  <span
+    error-label
+    [errors]="errors"
+    [isTouched]="formGroup.get(formControlName)?.touched!"
+    [labelErrorField]="formControlName"
+  ></span>
 }

@@ -3,30 +3,33 @@
 
   <div>
     <app-input
-      [errors]="profileForm.get('firstName')?.errors!"
       [formGroup]="profileForm"
+      additionalClasses="margin-block-start-2"
       formControlName="firstName"
       label="First Name"
-      name="firstName"
     />
 
     <app-input
-      [errors]="profileForm.get('lastName')?.errors!"
       [formGroup]="profileForm"
       additionalClasses="margin-block-start-6"
       formControlName="lastName"
       label="Last Name"
-      name="lastName"
     />
 
     <app-input
-      [errors]="profileForm.get('email')?.errors!"
       [formGroup]="profileForm"
       additionalClasses="margin-block-start-6"
       formControlName="email"
       label="Email"
-      name="email"
       type="email"
+    />
+
+    <app-input
+      [formGroup]="profileForm"
+      additionalClasses="margin-block-start-6"
+      formControlName="password"
+      label="Password"
+      type="password"
     />
 
     <app-button
@@ -38,7 +41,7 @@
   </div>
 </form>
 
-<pre>Invalid: {{ profileForm.invalid }}</pre>
+<pre class="margin-block-start-10">Invalid: {{ profileForm.invalid }}</pre>
 <pre>FN errors: {{ profileForm.get('firstName')?.errors | json }}</pre>
 <pre>LN errors: {{ profileForm.get('lastName')?.errors | json }}</pre>
 <pre>Email errors: {{ profileForm.get('email')?.errors | json }}</pre>
