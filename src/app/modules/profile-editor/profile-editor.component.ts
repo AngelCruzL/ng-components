@@ -37,6 +37,8 @@ export class ProfileEditorComponent implements OnInit {
             Validators.required,
             Validators.pattern(ValidatorService.emailPattern),
           ],
+          // The next line is to implement a validation to check
+          // that the email has not been taken
           // [this.#emailValidatorService],
         ],
         password: [
@@ -49,7 +51,12 @@ export class ProfileEditorComponent implements OnInit {
         passwordConfirmation: ['', [Validators.required]],
       },
       {
-        validators: [],
+        validators: [
+          this.#validatorService.passwordsMatchValidator(
+            'password',
+            'passwordConfirmation',
+          ),
+        ],
       },
     );
   }

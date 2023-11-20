@@ -88,5 +88,12 @@ export class ErrorLabelDirective {
       this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
+
+    if (this.#isTouched && errors.includes('passwordsMatch')) {
+      this.#htmlElement.nativeElement.textContent =
+        'Las contraseñas deben ser iguales';
+      this.#htmlElement.nativeElement.style.color = this.#color;
+      return;
+    }
   }
 }

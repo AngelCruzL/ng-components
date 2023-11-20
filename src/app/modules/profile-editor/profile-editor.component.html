@@ -32,6 +32,14 @@
       type="password"
     />
 
+    <app-input
+      [formGroup]="profileForm"
+      additionalClasses="margin-block-start-6"
+      formControlName="passwordConfirmation"
+      label="Password Confirmation"
+      type="password"
+    />
+
     <app-button
       [disabled]="profileForm.invalid"
       additionalClasses="margin-block-start-8"
