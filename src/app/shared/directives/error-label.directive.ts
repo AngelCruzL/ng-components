@@ -64,5 +64,29 @@ export class ErrorLabelDirective {
       this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
+
+    // This code is executed if the input is an email input,
+    // and does not have the email validator, but has the pattern validator
+    if (
+      this.#labelErrorField === 'email' &&
+      this.#isTouched &&
+      errors.includes('pattern')
+    ) {
+      this.#htmlElement.nativeElement.textContent = `El campo debe ser un correo electrónico válido`;
+      this.#htmlElement.nativeElement.style.color = this.#color;
+      return;
+    }
+
+    // This code is executed if the input is a password input,
+    // and does not have the minlength validator, but has the pattern validator
+    if (
+      this.#labelErrorField === 'password' &&
+      this.#isTouched &&
+      errors.includes('pattern')
+    ) {
+      this.#htmlElement.nativeElement.textContent = `La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número`;
+      this.#htmlElement.nativeElement.style.color = this.#color;
+      return;
+    }
   }
 }
