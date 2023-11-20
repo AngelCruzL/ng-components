@@ -28,7 +28,8 @@
     [errors]="errors"
     [isTouched]="formGroup.get(formControlName)?.touched!"
     [labelErrorField]="formControlName"
-  ></span>
+    (errorMessage)="onErrorMessage($event)"
+  >{{ errorMessageKey }}</span>
 } @else {
   <input
     class="input"
@@ -41,11 +42,11 @@
     [value]="inputValue"
     (blur)="onBlur()"
   />
-  
+
   <span
     error-label
     [errors]="errors"
     [isTouched]="formGroup.get(formControlName)?.touched!"
     [labelErrorField]="formControlName"
-  ></span>
+  >{{ errorMessageKey }}</span>
 }

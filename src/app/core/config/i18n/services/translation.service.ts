@@ -16,7 +16,7 @@ export class TranslationService {
   static detectLanguage(): string {
     const language = navigator.language.split('-')[0];
 
-    return 'es';
+    // return 'es';
     return TranslationService.SUPPORTED_LANGUAGES.includes(language)
       ? language
       : TranslationService.DEFAULT_TRANSLATION_LANGUAGE;

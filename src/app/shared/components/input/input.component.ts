@@ -4,6 +4,7 @@ import {
   forwardRef,
   inject,
   Input,
+  OnInit,
   Provider,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,9 @@ import {
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { ErrorLabelDirective } from '@shared/directives/error-label.directive';
+import { TranslationService } from '@core/config/i18n';
+import errorLabelsEnTranslations from '@i18n/en/error-labels.json';
+import errorLabelsEsTranslations from '@i18n/es/error-labels.json';
 
 const CONTROL_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
@@ -32,11 +36,12 @@ const CONTROL_VALUE_ACCESSOR: Provider = {
     ReactiveFormsModule,
     ErrorLabelDirective,
     TranslateModule,
+    TranslateModule,
   ],
-  providers: [CONTROL_VALUE_ACCESSOR],
+  providers: [CONTROL_VALUE_ACCESSOR, TranslateService],
   templateUrl: './input.component.html',
 })
-export class InputComponent implements ControlValueAccessor {
+export class InputComponent implements ControlValueAccessor, OnInit {
   /**
    * The label to show if hasLabel is true, if not, this is used as aria-label
    */
@@ -88,13 +93,23 @@ export class InputComponent implements ControlValueAccessor {
   @Input() additionalClasses = '';
 
   inputValue = '';
+  errorMessageKey = '';
   #translateService = inject(TranslateService);
   #onChangeFn!: (value: string) => void;
   #onTouchFn!: () => void;
 
+  constructor() {
+    const defaultLanguage = TranslationService.detectLanguage();
+    this.#translateService.use(defaultLanguage);
+    this.#translateService.setTranslation('en', errorLabelsEnTranslations);
+    this.#translateService.setTranslation('es', errorLabelsEsTranslations);
+  }
+
   get errors(): ValidationErrors | null {
     return this.formGroup.get(this.formControlName)?.errors!;
   }
+
+  ngOnInit(): void {}
 
   onChange($event: any) {
     this.#onChangeFn($event.target.value);
@@ -118,5 +133,11 @@ export class InputComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     // throw new Error('Method not implemented.');
+  }
+
+  onErrorMessage(errorMessageKey: string) {
+    console.log({ errorMessageKey });
+    // this.errorMessageKey = errorMessageKey;
+    this.errorMessageKey = this.#translateService.instant(errorMessageKey);
   }
 }

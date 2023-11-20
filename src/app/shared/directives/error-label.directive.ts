@@ -1,21 +1,40 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  EventEmitter,
+  inject,
+  Input,
+  Output,
+} from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from '@core/config/i18n';
+import errorLabelsEnTranslations from '@i18n/en/error-labels.json';
+import errorLabelsEsTranslations from '@i18n/es/error-labels.json';
 
 @Directive({
   selector: '[error-label]',
   standalone: true,
+  providers: [TranslateService],
 })
 export class ErrorLabelDirective {
+  @Output() errorMessage = new EventEmitter<string>();
+
   #htmlElement!: ElementRef<HTMLElement>;
   #errors?: ValidationErrors | null;
   #isTouched = false;
   #labelErrorField!: string;
-  #color = 'red';
+  #translateService = inject(TranslateService);
 
   constructor(private el: ElementRef<HTMLElement>) {
     this.#htmlElement = el;
     this.#htmlElement.nativeElement.textContent = '';
     this.#htmlElement.nativeElement.classList.add('error-label');
+
+    const defaultLanguage = TranslationService.detectLanguage();
+    this.#translateService.use(defaultLanguage);
+    this.#translateService.setTranslation('en', errorLabelsEnTranslations);
+    this.#translateService.setTranslation('es', errorLabelsEsTranslations);
   }
 
   @Input({ required: true }) set errors(
@@ -43,10 +62,10 @@ export class ErrorLabelDirective {
     const errors = Object.keys(this.#errors);
 
     if (this.#isTouched && errors.includes('required')) {
-      this.#htmlElement.nativeElement.textContent = `El campo ${
-        this.#labelErrorField
-      } es requerido`;
-      this.#htmlElement.nativeElement.style.color = this.#color;
+      // this.#htmlElement.nativeElement.textContent = `El campo ${
+      //   this.#labelErrorField
+      // } es requerido`;
+      // this.errorMessage.emit('required');
       return;
     }
 
@@ -55,13 +74,11 @@ export class ErrorLabelDirective {
       const currentLength = this.#errors['minlength']['actualLength'];
 
       this.#htmlElement.nativeElement.textContent = `El campo debe tener al menos ${minLength} caracteres, actualmente tiene ${currentLength} caracteres`;
-      this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
 
     if (this.#isTouched && errors.includes('email')) {
       this.#htmlElement.nativeElement.textContent = `El campo debe ser un correo electrónico`;
-      this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
 
@@ -73,7 +90,6 @@ export class ErrorLabelDirective {
       errors.includes('pattern')
     ) {
       this.#htmlElement.nativeElement.textContent = `El campo debe ser un correo electrónico válido`;
-      this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
 
@@ -85,14 +101,12 @@ export class ErrorLabelDirective {
       errors.includes('pattern')
     ) {
       this.#htmlElement.nativeElement.textContent = `La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número`;
-      this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
 
     if (this.#isTouched && errors.includes('passwordsMatch')) {
       this.#htmlElement.nativeElement.textContent =
         'Las contraseñas deben ser iguales';
-      this.#htmlElement.nativeElement.style.color = this.#color;
       return;
     }
   }

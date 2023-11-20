@@ -1,0 +1,8 @@
+{
+  "required": "El campo es requerido",
+  "minlength": "El campo debe tener al menos {{length}} caracteres, actualmente tiene {{currentLength}}",
+  "email": "El campo debe ser un correo electrónico válido",
+  "pattern_email": "El campo debe ser un correo electrónico válido",
+  "pattern_password": "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número",
+  "passwords_match": "Las contraseñas deben ser iguales"
+}
