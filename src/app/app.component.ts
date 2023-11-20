@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ButtonComponent, InputComponent } from '@shared/components';
-import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
+import { ProfileEditorComponent } from '@modules/profile-editor';
 
 @Component({
   selector: 'app-root',
