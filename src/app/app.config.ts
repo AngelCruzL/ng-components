@@ -2,7 +2,8 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { TranslationService } from '@core/config/i18n';
 
 import { routes } from './app.routes';
 
@@ -12,17 +13,13 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: 'en',
+        defaultLanguage: TranslationService.detectLanguage(),
         loader: {
           provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
+          useFactory: TranslationService.HttpLoaderFactory,
           deps: [HttpClient],
         },
       }),
     ),
   ],
 };
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}

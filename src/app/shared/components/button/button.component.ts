@@ -1,14 +1,26 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
+import { TranslationService } from '@core/config/i18n';
+import buttonEnTranslations from '@i18n/en/buttons.json';
+import buttonEsTranslations from '@i18n/es/buttons.json';
 
 @Component({
   selector: 'app-button',
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './button.component.html',
+  providers: [TranslateService],
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnInit {
   /**
    * Defines the label of the button
    */
@@ -40,6 +52,15 @@ export class ButtonComponent {
   @Output() onClick = new EventEmitter<any>();
 
   @Input() additionalClasses = '';
+
+  #translateService = inject(TranslateService);
+
+  ngOnInit(): void {
+    const defaultLanguage = TranslationService.detectLanguage();
+    this.#translateService.use(defaultLanguage);
+    this.#translateService.setTranslation('en', buttonEnTranslations);
+    this.#translateService.setTranslation('es', buttonEsTranslations);
+  }
 
   /**
    * Handles the click event of the button
